@@ -8,6 +8,8 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
   const changeItem = () => {
     if(item === 'back') {
       return 'nugara'
+    } else if (item === 'archer push up'){
+      return 'archer atsispaudimai'
     } else {
       return item
     }
