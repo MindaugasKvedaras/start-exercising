@@ -24,7 +24,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
     fetchExercisesData();
 
-  }, [bodyPart]);
+  }, [bodyPart, setExercises]);
 
 
   const indexOfLastExercise = currentPage * exercisesPerPage;

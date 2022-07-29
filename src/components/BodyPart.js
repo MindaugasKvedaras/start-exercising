@@ -3,17 +3,9 @@ import { Stack, Typography } from '@mui/material';
 
 import Icon from '../assets/icons/gym.png';
 
-const BodyPart = ({ item, setBodyPart, bodyPart }) => {
+import { translation } from '../translations/translation-bodyParts';
 
-  const changeItem = () => {
-    if(item === 'back') {
-      return 'nugara'
-    } else if (item === 'archer push up'){
-      return 'archer atsispaudimai'
-    } else {
-      return item
-    }
-  }
+const BodyPart = ({ item, setBodyPart, bodyPart }) => {
 
   return (
       <Stack
@@ -39,7 +31,7 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
           height: '40px'}} />
           <Typography fontSize="24px" fontWeight="bold" 
           color="#3A1212" textTransform="capitalize">
-            {changeItem()}
+            {translation(item)}
           </Typography>
       </Stack>
   )

@@ -5,22 +5,25 @@ import BodyPartImage from '../assets/icons/body-part.png';
 import TargetImage from '../assets/icons/target.png';
 import EquipmentImage from '../assets/icons/equipment.png';
 
+import { translationExerciseName } from '../translations/translation-exercise-details-name';
+import { translationExerciseTarget, translationExerciseTargetBtn, translationBodyPartBtn, translationEquipmentBtn } from '../translations/translation-exercise-details-target';
 
-const Deatil = ({ exerciseDetail }) => {
+
+const Deatil = ({ exerciseDetail, exercise }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
 
   const extraDetail = [
     {
       icon: BodyPartImage,
-      name: bodyPart,
+      name: translationBodyPartBtn(bodyPart),
     },
     {
       icon: TargetImage,
-      name: target,
+      name: translationExerciseTargetBtn(target),
     },
     {
       icon: EquipmentImage,
-      name: equipment,
+      name: translationEquipmentBtn(equipment),
     }
   ]
 
@@ -29,18 +32,18 @@ const Deatil = ({ exerciseDetail }) => {
       <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
       <Stack sx={{ gap: { lg: '35px', xs: '20px' }}}>
         <Typography variant="h3">
-          {name}
+          {translationExerciseName(name)}
         </Typography>
         <Typography variant="h6">
-          Exercises keep you strong. {name} {' '} is one of the best exercises
-          to target your {target}. It will help you improve your mood and gain energy.
+          Fiziniai pratimai jus palaiko stiprius. {translationExerciseName(name)} {' '} yra vienas iš geriausių pratimų stiprinančių
+          {' '} {translationExerciseTarget(target)}. Reguliarus fizinis krūvis pagerins jūsų nuotaiką ir suteiks jums energijos.
         </Typography>
         {extraDetail.map((item) => (
           <Stack key={item.name} direction="row" gap="24px" alignItems="center">
             <Button sx={{ background: '#fff2db', borderRadius: '50%', width: '100px', height: '100px' }}>
               <img src={item.icon} alt={bodyPart} style={{ width: '50px', height: '50px' }}/>
             </Button>
-            <Typography textTransform="capitalize" variant="h5">
+            <Typography variant="h5">
               {item.name}
             </Typography>
           </Stack>
